@@ -160,21 +160,31 @@ def station_stats(df):
 	
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
+    trip_duration_stats = input('Do you seek some trip duration stats? Type yes or no...\n')
+    if trip_duration_stats.lower() == 'yes':
+        print('\nCalculating Trip Duration...\n')
+        start_time = time.time()
 
-    print('\nCalculating Trip Duration...\n')
-    start_time = time.time()
+        # TO DO: display total travel time
+        total_travel_time = df['Trip Duration'].sum()
+        # TO DO: display mean travel time
+        mean_travel_time = df['Trip Duration'].mean()
+        min_travel_time  = df['Trip Duration'].min()
+        max_travel_time  = df['Trip Duration'].max()
+        comm_travel_time = df['Trip Duration'].mode()[0]
 
-    # TO DO: display total travel time
-    total_travel_time = df['Trip Duration'].sum()
-    # TO DO: display mean travel time
-    mean_travel_time = df['Trip Duration'].mean()
-    
-    print('Total Travel Time is: ', total_travel_time)
-    print('Mean Travel Time is : ', mean_travel_time)
+        print('Total Travel Time is : {} hour(s)'.format(total_travel_time//60))
+        print('Max Travel Time is   : {} hour(s)'.format(max_travel_time//60))
+        print('Min Travel Time is   : {} hour(s)'.format(min_travel_time//60))
+        print('Common Travel Time is: {} hour(s)'.format(comm_travel_time//60))
+        print('Mean Travel Time is  : {} hour(s)'.format(mean_travel_time//60))
 
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*22)
+        print("\nThis took %s seconds." % (time.time() - start_time))
+        print('-'*38)
+    else:
+        print('As you wish!')
+        pass
 	
 def user_stats(df):
     """Displays statistics on bikeshare users."""
