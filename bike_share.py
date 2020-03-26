@@ -17,15 +17,42 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    city = pd.read_csv(CITY_DATA[input('Insert, which city you seek? \n cityies are: chicago, new york city and washington\n')])
+    while True:
+        try:
+            city = pd.read_csv(CITY_DATA[input('Insert, which city you seek? \n cities are: chicago, new york city and washington\n').lower()])
+        except KeyError:
+            print('Invalid city name, please Enter your city again!!')
+            continue
+        break
+      
 
-    # TO DO: get user input for month (all, january, february, ... , june)
-    month = input('Insert, Which month you seek? as all, january, february ... \n')
+    if 'Gender'and 'Birth Year' not in city.columns:
+        city['Gender'] = 'NaN'
+        city['Birth Year'] = 'NaN'
+
+    while True:
+        try:
+            months = {'jan': 'january', 'feb': 'february', 'mar': 'march', 'apr': 'april',\
+                      'may': 'may','jun': 'june', 'all': 'all'}
+            month = (months[input('Insert, Which month you seek? jan, feb, mar ...\n').lower()])
+        except KeyError:
+            print('Invalid month name, Enter which month again!!')
+            continue
+        break
+
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-    day = input('Insert, Which day you seek? as all, saturday, sunday ... \n')
+    while True:
+        try:
+            days = {'sat': 'saturday', 'sun': 'sunday', 'mon': 'monday', 'tue': 'tuesday',\
+                      'wed': 'wednesday','thu': 'thursday','fri': 'friday','all': 'all'}
+            day = (days[input('Insert, Which day you seek? sat, sun, mon ...\n').lower()])
+        except KeyError:
+            print('Invalid day name, Enter which day again!!')
+            continue
+        break
 
-    print('-'*62)
+    print('-'*40)
     return city, month, day
 
 def load_data(city, month, day):
