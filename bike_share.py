@@ -107,8 +107,8 @@ def data_stats(df):
         print('-'*38)
     else:
         print('as you wish!')
-        pass 
-		
+        pass
+
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
     time_stats = input('Do you seek some Time Statistics? Type yes or no...\n')
@@ -157,7 +157,7 @@ def station_stats(df):
         pass
 
 
-	
+
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
     trip_duration_stats = input('Do you seek some trip duration stats? Type yes or no...\n')
@@ -265,17 +265,19 @@ def main():
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
-        print(df.head(5))
+        #print(df.head())
+        
 
+        data_stats(df)
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-		
+        display_data(df)
+      
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
-
 
 if __name__ == "__main__":
     main()
