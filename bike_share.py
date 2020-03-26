@@ -94,40 +94,50 @@ def load_data(city, month, day):
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
+    time_stats = input('Do you seek some Time Statistics? Type yes or no...\n')
+    if time_stats.lower() == 'yes':
+        print('\nCalculating The Most Frequent Times of Travel...\n')
+        start_time = time.time()
 
-    print('\nCalculating The Most Frequent Times of Travel...\n')
-    start_time = time.time()
-    
-    df['Start Time'] = pd.to_datetime(df['Start Time'])
-    df['End Time']   = pd.to_datetime(df['End Time'])
+        # extract hour from the Start Time column to create an hour column
 
-    # extract hour from the Start Time column to create an hour column
 
-    df['str_date']   = df['Start Time'].dt.date
-    df['str_year']   = df['Start Time'].dt.year
-    df['str_month']  = df['Start Time'].dt.month_name(locale = 'English')
-    df['str_day']    = df['Start Time'].dt.day_name(locale = 'English')
-    df['str_hour']   = df['Start Time'].dt.hour
-    df['str_minute'] = df['Start Time'].dt.minute
-    df['str_second'] = df['Start Time'].dt.second
-    df['end_date']   = df['End Time'].dt.date
-    df['end_year']   = df['Start Time'].dt.year
-    df['end_month']  = df['Start Time'].dt.month_name(locale = 'English')
-    df['end_day']    = df['Start Time'].dt.day_name(locale = 'English')
-    df['end_hour']   = df['End Time'].dt.hour
-    df['end_minute'] = df['End Time'].dt.minute
-    df['end_second'] = df['End Time'].dt.second
+        most_month          = df.loc[:,'Start Time'].dt.month_name().mode()[0]        
+        most_common_day     = df.loc[:,'Start Time'].dt.day_name().mode()[0]
 
-    most_month            = df['str_month'].mode()[0]
-    popular_hour          = df['str_hour'].mode()[0]
-    most_common_day       = df['str_day'].mode()[0]
+        most_comn_str_hours = pd.to_datetime(df.loc[:,'Start Time']).dt.hour.mode()[0]
+        most_comn_end_hours = pd.to_datetime(df.loc[:,'Start Time']).dt.hour.mode()[0]       
 
-    print('the most common month          : ',most_month)
-    print('the most common day of week    : ', most_common_day)
-    print('the most common start hour     : ', popular_hour)
-    print('-'*41)
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*37)
+        print('The Most Common Month          : ', most_month)
+        print('The Most Common Day of Week    : ', most_common_day)
+        print('The Most Common Start Hour     : ', most_comn_str_hours)
+        print('The Most Common End Hour       : ', most_comn_end_hours)
+        print('-'*43)
+        print("\nThis took %s seconds." % (time.time() - start_time))
+        print('-'*37)
+    else:
+        print('as you wish!')
+        pass
+
+def station_stats(df):
+    """Displays statistics on the most popular stations and trip."""
+    station_stats = input('Do you seek some station stats? Type yes or no... \n')
+    if station_stats.lower() == 'yes':
+        print('\nCalculating The Most Popular Stations and Trip...\n')
+        start_time = time.time()
+        most_str_station            = df['Start Station'].mode()[0]
+        most_end_station            = df['End Station'].mode()[0]
+        comn_str_end_station        = ('Start Station: '+df.loc[:,'Start Station']+ ', End Station: ' +df.loc[:,'End Station']).mode()[0]
+
+        # TO DO: display most commonly used start station
+        print('Most Commonly Used Start Station is    : ',most_str_station)
+        print('Most Commonly Used End Station is      : ', most_end_station)
+        print('Most Combinaton Start & End Station is : ', comn_str_end_station)
+        print("\nThis took %s seconds." % (time.time() - start_time))
+        print('-'*39)
+    else:
+        print('As you wish!') 
+        pass
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
