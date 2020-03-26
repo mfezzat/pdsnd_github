@@ -61,10 +61,17 @@ used to make interactive dialoge with user to retreive some statistical data as:
 ### Credits
 
 https://python4astronomers.github.io/installation/packages.html
+
 https://pymotw.com/3/
+
 https://docs.python.org/3/library/index.html
+
 https://git-scm.com/book/en/v2
+
 https://www.atlassian.com/git/tutorials/using-branches
+
 https://docs.google.com/document/d/1DoNBEQJyGHi0qAWpMpQM9lU9_VKh8ubdOY2BmKdvZcc/edit
+
 https://github.com/udacity/pdsnd_github
+
 https://stackoverflow.com/questions/10565217/do-you-push-every-single-commit
