@@ -47,13 +47,24 @@ used to make interactive dialoge with user to retreive some statistical data as:
 - gives the user some calculations about the timing and travle time ...
 - gives the user of the project the users type for the bikes (customer - Dependent - subscriber)
 ### Usage
-1- Clone the project repository:
-$ git clone https://github.com/mfezzat/pdsnd_github.git
-2- install python
-windows: install python by download and run '.exe' file
-linux  : $ sudo apt-get insatll python
-3- run the project
-$ python python bike_share.py
-### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
 
+1- Clone the project repository:
+	$ git clone https://github.com/mfezzat/pdsnd_github.git
+
+2- install python
+	windows: install python by download and run '.exe' file
+	linux  : $ sudo apt-get insatll python
+	
+3- run the project
+	$ python python bike_share.py
+	
+### Credits
+
+https://python4astronomers.github.io/installation/packages.html
+https://pymotw.com/3/
+https://docs.python.org/3/library/index.html
+https://git-scm.com/book/en/v2
+https://www.atlassian.com/git/tutorials/using-branches
+https://docs.google.com/document/d/1DoNBEQJyGHi0qAWpMpQM9lU9_VKh8ubdOY2BmKdvZcc/edit
+https://github.com/udacity/pdsnd_github
+https://stackoverflow.com/questions/10565217/do-you-push-every-single-commit
