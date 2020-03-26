@@ -188,59 +188,53 @@ def trip_duration_stats(df):
 	
 def user_stats(df):
     """Displays statistics on bikeshare users."""
+    user_stats = input('Do you seek some User Stats? Type yes or no...\n')
+    if user_stats.lower() == 'yes':
+        print('\nCalculating User Stats...\n')
+        start_time      = time.time()
 
-    print('\nCalculating User Stats...\n')
-    start_time     = time.time()
-    
-    total_users    = df['User Type'].count()
-    tot_subscriber = df['User Type'].value_counts()['Subscriber']
-    tot_customer   = df['User Type'].value_counts()['Customer']
-    tot_dependent  = df['User Type'].value_counts()['Dependent']
-    
-    tot_gender     = df['Gender'].count()
-    tot_Male       = df['Gender'].value_counts()['Male']
-    tot_Female     = df['Gender'].value_counts()['Female']
-    
-    birth_yar_cunt = df['Birth Year'].count()
-    recent_birth   = df['Birth Year'].min()
-    earliest_birth = df['Birth Year'].max()
-    most_com_birth = df['Birth Year'].mode()[0]
-    
-    # TO DO: Display counts of user types
-    print('User Categories and numbers are... \n')
+        total_users     = df['User Type'].count()
+        tot_user_list   = df['User Type'].value_counts()
 
-    print('total subscribers: ', tot_subscriber)
-    print('total Customers  : ', tot_customer)
-    print('total Dependent  : ', tot_dependent)
-    print('-'*26)
-    print('total users are  :  {}'.format(total_users))
-    print('-'*26, '\n')
-    
-    # TO DO: Display counts of gender
-    print('User Gender and numbers are...\n')
+        tot_gender      = df['Gender'].count()
+        tot_gender_list = df['Gender'].value_counts()
 
-    print('Total Males   : ', tot_Male)
-    print('Total Female  : ', tot_Female)
-    print('-'*23)
-    print('Total Gender  :  {}'.format(tot_gender))
-    print('-'*23, '\n')
+        birth_yar_cunt  = df['Birth Year'].count()
+        recent_birth    = df['Birth Year'].min()
+        earliest_birth  = df['Birth Year'].max()
+        most_com_birth  = df['Birth Year'].mode()[0]
 
-    # TO DO: Display earliest, most recent, and most common year of birth
-    
-    print('Birth Years Recent, Earliest and most common...\n')
-    
-    print('Most Recent Birth Year is: ',recent_birth)
-    print('Most Early Birth Year is : ',earliest_birth)
-    print('Most Common Birth Year is: ',most_com_birth)    
-    print('-'*33)
-    print('Available Birth years    :', birth_yar_cunt)
-    print('-'*33, '\n')
-    
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*38)
+        # TO DO: Display counts of user types
+        print('User Categories and numbers are... \n')
 
+        print('User list: \n', tot_user_list)
+        print('-'*29)
+        #print('total users are  :  {}'.format(total_users))
+        #print('-'*26, '\n')
 
-#     tot_dependent  = df['User Type'].value_counts()['Dependent'] it's not there in some monthes.
+        # TO DO: Display counts of gender
+        print('User Gender and numbers are...\n')
+
+        print('Total Gender list   : \n', tot_gender_list)
+        print('-'*26)
+        #print('Total Gender  :  {}'.format(tot_gender))
+        #print('-'*23, '\n')
+
+        # TO DO: Display earliest, most recent, and most common year of birth
+        print('Birth Years Recent, Earliest and most common...\n')
+
+        print('Most Recent Birth Year is: ',recent_birth)
+        print('Most Early Birth Year is : ',earliest_birth)
+        print('Most Common Birth Year is: ',most_com_birth)    
+        print('-'*34)
+        print('Available rows           : ', birth_yar_cunt)
+        print('-'*34, '\n')
+
+        print("\nThis took %s seconds." % (time.time() - start_time))
+
+    else:
+        print('As you wish!')
+        pass
 
 def main():
     while True:
