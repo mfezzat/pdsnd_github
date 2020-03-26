@@ -49,13 +49,17 @@ used to make interactive dialoge with user to retreive some statistical data as:
 ### Usage
 
 1- Clone the project repository:
+
 	$ git clone https://github.com/mfezzat/pdsnd_github.git
 
 2- install python
+
 	windows: install python by download and run '.exe' file
+	
 	linux  : $ sudo apt-get insatll python
 	
 3- run the project
+
 	$ python python bike_share.py
 	
 ### Credits
