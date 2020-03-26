@@ -92,6 +92,23 @@ def load_data(city, month, day):
         df = df[df['day_of_week'] == day.title()]
     return df
 
+def data_stats(df):
+    data_stats = input('Do you seek some statistics about your city data? Type yes or no... \n')
+    if data_stats.lower() == 'yes':
+        print('\nCalculating Some Stats about your city:. \n')
+        start_time = time.time()
+        col_names  = df.columns.values.tolist()
+        descriptive_info = df.describe(exclude=[np.number])
+        
+        print('Columns names are: \n',col_names)
+        print('-'*43)
+        print('Some descriptive info about your city data: \n', descriptive_info)
+        print("\nThis took %s seconds." % (time.time() - start_time))
+        print('-'*38)
+    else:
+        print('as you wish!')
+        pass 
+		
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
     time_stats = input('Do you seek some Time Statistics? Type yes or no...\n')
