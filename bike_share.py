@@ -2,9 +2,9 @@ import time
 import pandas as pd
 import numpy as np
 
-CITY_DATA = { 'chicago': './data_files/chicago.csv',
-              'new york city': './data_files/new_york_city.csv',
-              'washington': './data_files/washington.csv' }
+CITY_DATA = { 'chicago': './chicago.csv',
+              'new york city': './new_york_city.csv',
+              'washington': './washington.csv' }
 
 def get_filters():
     """
