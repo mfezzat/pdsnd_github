@@ -2,7 +2,7 @@
 
 
 ### BikeShare Statistical Data
-Simple Python small project to give the user some Statistical information,
+Simple small Python project to give the user some Statistical information,
 about the bikeshare Co. in three major cities in USA
 
 ### Description
@@ -36,7 +36,24 @@ Notes:
 * Trips greater than 24 hours in duration are excluded
 * Gender and birthday are only available for Subscribers
 
+Used one main Python file contains all the script.
+- (bike_share.py)
 
+used to make interactive dialoge with user to retreive some statistical data as:
+- chossing the City to deal with.
+- defining which month or all months within the Data Set.
+- defining which day or all days of the week.
+- gives the user some data about the frequency of usage 'month, day, time, staion...'
+- gives the user some calculations about the timing and travle time ...
+- gives the user of the project the users type for the bikes (customer - Dependent - subscriber)
+### Usage
+1- Clone the project repository:
+$ git clone https://github.com/mfezzat/pdsnd_github.git
+2- install python
+windows: install python by download and run '.exe' file
+linux  : $ sudo apt-get insatll python
+3- run the project
+$ python python bike_share.py
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
 
