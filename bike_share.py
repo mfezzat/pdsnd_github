@@ -236,6 +236,31 @@ def user_stats(df):
         print('As you wish!')
         pass
 
+def display_data(df):
+    show_5_row = input('Do you want to see 5 raws of data? Type yes or no...\n')   
+    if show_5_row.lower() == 'yes':
+        print('\nRetrieving first 5 raws in your city...\n')
+        start_time      = time.time()
+        
+        print(df.head(5))
+        show_5_more = input('Do you seek next 5 raws? Type yes or no \n')
+        if show_5_more.lower() == 'yes':
+            print(df.iloc[5:11])
+            show_raw = input('Do you seek raw by raw? type yes or no..\n')
+            if show_raw == 'yes':
+                for i in range(11, len(df)):
+                    print(df.iloc[i])
+            else:
+                print('As you wish... no raws for you...')            
+        else:
+            print('don\'t push... no next 5 raws for you.')
+        print("\nThis took %s seconds." % (time.time() - start_time))
+        print('-' * 35,'\n')
+    else:
+        print('ok no heads for you, it\'s enough.')
+        pass
+
+        
 def main():
     while True:
         city, month, day = get_filters()
